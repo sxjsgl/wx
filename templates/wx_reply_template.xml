@@ -1,0 +1,15 @@
+<xml>
+<ToUserName><![CDATA[{{info['touser']}}]]></ToUserName>
+<FromUserName><![CDATA[{{info['fromuser']}}]]></FromUserName>
+<CreateTime>{{info['createtime']}}</CreateTime>
+<MsgType><![CDATA[{{info['msgtype']}}]]></MsgType>
+    {% if info['msgtype'] == 'text' %}
+    <Content><![CDATA[{{info['content'] | safe}}]]></Content>
+    {% endif %}
+    {% if info['msgtype'] == 'image' %}
+        <Image>
+        <MediaId><![CDATA[{{info['content']}}]]></MediaId>
+        </Image>
+    {% endif %}
+</xml>
+
